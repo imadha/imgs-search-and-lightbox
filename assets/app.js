@@ -127,7 +127,7 @@ var App = (function () {
    *
    */
   
-  /*
+  /**
    * Handle if there is a hashtag search in the url
    * Sanitize value and request photos 
    */
@@ -204,7 +204,7 @@ var App = (function () {
    *
    */
 
-  /*
+  /**
    * Updates state in variable and DOM (to be used by CSS)
    * A primitive way to create immutable application state
    * @param {object} updates - states to update
@@ -272,7 +272,7 @@ var App = (function () {
    *
    */
 
-  /*
+  /**
    * Creates thumb elements in grid
    * @param {object} data - data for Instagram post
    * @param {int} index - index of current thumbnail in loop
