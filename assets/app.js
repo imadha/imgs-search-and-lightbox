@@ -172,7 +172,7 @@ var App = (function () {
     bodyEl.appendChild(script);
   };
 
-  /*
+  /**
    * Make the JSONP call for a hashtag
    * The script that gets loaded will make the callback
    * @param {string} hashtag - tag to search for
@@ -220,7 +220,7 @@ var App = (function () {
     }
   };
 
-  /*
+  /**
    * Send a message to the user, optionally updating state
    * @param {string} message - the message to send
    * @param {string} colorState (optional) - option to change color of message
@@ -300,7 +300,7 @@ var App = (function () {
     thumbsEl.appendChild(img);
   };
 
-  /*
+  /**
    * Will be called back by JSONP script from Instagram
    * Validates response and renders results
    * @param {object} response - JSON response from Instagram
@@ -339,7 +339,7 @@ var App = (function () {
    *
    */
 
-  /*
+  /**
    * Coverts #hashtags and @usernames to clickable links
    * @param {string} caption - Instagram caption
    * @returns {string} caption with links inside
@@ -385,7 +385,7 @@ var App = (function () {
     return newValueStripped;
   };
 
-  /*
+  /**
    * Creates a offsite link to Instagram user
    * @param {string} username - Instagram username
    * @returns {string} HTML for link to Instagram user profile
@@ -409,7 +409,7 @@ var App = (function () {
     window.addEventListener('keyup', this.boundLightboxKeyUp);
   }
 
-  /*
+  /**
    * Turns off the lightbox and detaches keyboard listener
    * @param {DOM event} - optionally use this method as event listener
    */
@@ -420,7 +420,7 @@ var App = (function () {
     window.removeEventListener('keyup', this.boundLightboxKeyUp);
   }
 
-  /*
+  /**
    * Switches to the previous image in the lightbox
    * @param {DOM event} - optionally use this method as event listener
    */
@@ -437,7 +437,7 @@ var App = (function () {
     lightboxInnerEl.setAttribute('data-animate', 'prev1');
   }
 
-  /*
+  /**
    * Switches to the next image in the lightbox
    * @param {DOM event} - optionally use this method as event listener
    */
@@ -461,7 +461,7 @@ var App = (function () {
     lightboxInnerEl.setAttribute('data-animate', 'next1');
   };
 
-  /*
+  /**
    * Populates the lightbox with the current data
    * @param {object} data - data for Instagram post
    */
@@ -502,7 +502,7 @@ var App = (function () {
     }
   };
 
-  /*
+  /**
    * Event handler for end of animation on lightbox inner el
    * Moves animations to their second step after populating lightbox with new data
    * @param {DOM event} - optionally use this method as event listener
@@ -531,7 +531,7 @@ var App = (function () {
    *
    */
 
-  /*
+  /**
    * Event Listener for pop state on window
    * @param {DOM Event} event - contains the popped state
    */
@@ -544,7 +544,7 @@ var App = (function () {
     }
   };
 
-  /*
+  /**
    * Scroll Event Listener
    * Used for infinite scroll
    * @param {DOM Event} event
@@ -559,7 +559,7 @@ var App = (function () {
     }
   }
 
-  /*
+  /**
    * Event Listener for input on search input
    * Sanitizes hashtag text and messages users appropriately
    * @param {DOM Event} event
@@ -593,7 +593,7 @@ var App = (function () {
     }
   };
 
-  /*
+  /**
    * Search Submit Event Listener
    * Makes sure there is a valid hashtag search before querying Instagram
    * @param {DOM Event} event
@@ -622,7 +622,7 @@ var App = (function () {
     }
   };
 
-  /*
+  /**
    * Search Submit Animation Event Listener
    * Simply removes className when animation is finished
    */
