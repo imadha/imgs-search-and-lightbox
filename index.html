@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>I M G S</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500" rel="stylesheet" type="text/css">
+    <link href="assets/style.css" rel="stylesheet" type="text/css"> 
+  </head>
+  <body>
+    <header class="smooth">
+      <div class="header-inner inner">
+        <h1 class="heading smooth"><a id="link-home" href="#">imgs</a></h1>
+        <h2 class="subhead">hashtag search and photo lightbox, powered by instagram</h2>
+        <form id="search-form">
+          <input class="smooth" id="search-input" name="search" type="text" value=""/>
+          <input class="smooth" id="search-submit" type="submit" value="Search"/>
+        </form>
+        <div class="messaging smooth">&nbsp;</div>
+      </div>
+    </header>
+    <main class="inner smooth">
+      <section class="thumbs"></section>
+      <div class="loading smooth"><span></span><span></span><span></span></div>
+    </main>
+    <section class="lightbox smooth">
+      <div class="lightbox-inner">
+        <div class="lightbox-img"></div><div class="lightbox-caption"></div>
+      </div>
+      <span class="lightbox-control lightbox-prev smooth"></span>
+      <span class="lightbox-control lightbox-next smooth"></span>
+      <span class="lightbox-control lightbox-off smooth"></span>
+    </section>
+    <script src="assets/app.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var imgsApp = new App();
+    </script>
+  </body>
+</html>
