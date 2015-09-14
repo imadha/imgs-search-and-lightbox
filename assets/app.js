@@ -36,6 +36,7 @@ var App = (function () {
   // Getting elements with native methods
   // Look at all the ways we can do this!
   var bodyEl = document.body;
+  var lightboxEl = document.getElementsByClassName('lightbox')[0];
   var lightboxImgEl = document.getElementsByClassName('lightbox-img')[0];
   var lightboxInnerEl = document.getElementsByClassName('lightbox-inner')[0];
   var lightboxCaptionEl = document.getElementsByClassName('lightbox-caption')[0];
@@ -81,15 +82,16 @@ var App = (function () {
     this.messagingTimer = null;
     this.waitingForInputTimer = null;
 
-    // Save bound lightbox event listener for attaching/detaching
+    // Save bound lightbox event listeners for attaching/detaching
     this.boundLightboxKeyUp = this.onLightboxKeyUp.bind(this);
 
     // Attach event listeners to lightbox controls
     lightboxInnerEl.addEventListener('animationend', this.onLightboxTransition.bind(this));
     lightboxInnerEl.addEventListener('webkitAnimationEnd', this.onLightboxTransition.bind(this));
-    lightboxOffEl.addEventListener('click', this.lightboxOff.bind(this));
     lightboxPrevEl.addEventListener('click', this.lightboxPrev.bind(this));
     lightboxNextEl.addEventListener('click', this.lightboxNext.bind(this));
+    lightboxOffEl.addEventListener('click', this.lightboxOff.bind(this));
+    lightboxEl.addEventListener('click', this.onLightboxClick.bind(this));
 
     // Attach event listeners to input
     searchInputEl.addEventListener('input', this.onSearchInput.bind(this));
@@ -216,7 +218,7 @@ var App = (function () {
     for (var i = 0, len = keys.length; i < len; i++) {
       thisKey = keys[i];
       this.state[thisKey] = updates[thisKey];
-      bodyEl.setAttribute('data-state-' + thisKey, updates[thisKey]);
+      bodyEl.setAttribute('data-state-' + thisKey.toLowerCase(), String(updates[thisKey]));
     }
   };
 
@@ -471,7 +473,7 @@ var App = (function () {
     this.updateState({ 
       lightboxIndex: index,
       // If we are on the last item of the currently available photos
-      lightboxLast: this.state.lightboxIndex === this.photoStore.length - 1 
+      lightboxLast: index === this.photoStore.length - 1 
     });
 
     lightboxImgEl.style.backgroundImage = 'url(' + data.images.standard_resolution.url + ')';
@@ -482,6 +484,15 @@ var App = (function () {
 
     lightboxCaptionEl.appendChild(p);
   }
+
+  /**
+   * Event handler for clicking off the lightbox
+   * Clicking the lightbox background should close the lightbox
+   * @param {DOM Event} event
+   */
+  App.prototype.onLightboxClick = function (event) {
+    event.target.className === 'lightbox' && this.lightboxOff(event);
+  };
 
   /**
    * Event handler for key up on window
