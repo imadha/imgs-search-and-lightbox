@@ -346,13 +346,13 @@ var App = (function () {
    */
   App.prototype.getCaptionWithLinks = function (caption) {
     var _this = this;
-    var regExp = /#([a-z0-9_]+)|(?:\s)@([a-z0-9_]+)/ig; // #(hashtag)|@(username)
+    var regExp = /#((?:[a-z0-9_]|[^\x00-\x7F])+)|(?:\s)@([a-z0-9_.]+)/ig; // #(hashtag)|@(username)
     return caption.replace(regExp, function (match, hashtag, username) {
       if (hashtag) {
         return '<a class="hashtag" href="#' + _this.getSanitizedHashtag(hashtag) + '">#' + hashtag + '</a>';
       }
       if (username) {
-        return _this.getUserLink(username);
+        return ' ' + _this.getUserLink(username);
       }
     });
   }
@@ -372,7 +372,7 @@ var App = (function () {
       .replace(' ', '_'); // Automatically convert spaces to underscores
 
     var newValueStripped = newValue
-      .replace(/[^a-z0-9_]+/g, ''); // Strip all unacceptable characters
+      .replace(/(?=[\x00-\x7F])[^a-z0-9_]/g, ''); // Strip all unacceptable characters
     
     if (returnFullObject) {
       return {
@@ -478,7 +478,7 @@ var App = (function () {
     
     lightboxCaptionEl.innerHTML = '';
     var p = document.createElement('p');
-    p.innerHTML = this.getUserLink(data.user.username) + ' ' + this.getCaptionWithLinks(data.caption.text);
+    p.innerHTML = this.getUserLink(data.user.username) + this.getCaptionWithLinks(' ' + data.caption.text);
 
     lightboxCaptionEl.appendChild(p);
   }
