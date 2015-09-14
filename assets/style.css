@@ -35,6 +35,7 @@ html {
 *:after {
   box-sizing: inherit;
   margin: 0;
+  opacity: inherit; /* fix for IE11 */
   padding: 0;
 }
 header, main, section {
