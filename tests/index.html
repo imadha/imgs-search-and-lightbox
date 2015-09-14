@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ImgsApp Browser Tests</title>
+    <style>
+      body {
+        font-family: monospace;
+      }
+      .pass:before {
+        content: '[PASS] ';
+        color: green;
+      }
+      .fail:before {
+        content: '[FAIL] ';
+        color: red;
+      }
+      #test-frame {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test-output">
+      <p class="fail">Could not load JavaScript and testing iframe.</p>
+    </div>
+    <iframe id="test-frame" src="../index.html" onload="runTests()"></iframe>
+    <script src="tests.js" type="text/javascript"></script>
+  </body>
+</html>
