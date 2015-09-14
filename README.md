@@ -19,8 +19,11 @@ You may run the demo's very primitive unit tests at http://ibrahim.madha.net/dem
  5. Navigate to other hashtags from photo captions
  6. Give me money to do this kind of stuff 😉💰
 
+**SEARCHER BEWARE** Instagram's API does not filter out inappropriate content as well as the app, so you might see the occasional NSFW/NSFL photo while perusing a seemingly innocent hashtag
+
 ### Future Considerations ###
 In an ideal world, our code would have all the features. Here are somethings I might do:
+- Animation tweaking and cross browser compatibilty.  The transitions look mostly great but could use a little love here and there, especially in IE
 - Modularize JS+CSS into web component style chunks and bundle assets with some sort of grunt/gulp/webpack build script.
 - Type to search.  Instagram rate limits API calls so this was out of scope for this project for now.
 - Real unit tests. Although these work, there could be much more thorough testing for all the use cases.
